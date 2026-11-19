@@ -66,14 +66,15 @@ export const AdminOverviewPanel = () => {
       const breakCutoff = new Date(Date.now() - 30 * 60 * 1000).toISOString(); // active in last 30 min
 
       const [
-        rolesRes, breaksRes, recentCallsRes,
+        rolesRes, profsRes, breaksRes, recentCallsRes,
         callsInRangeRes, leadsCountRes,
         pipelineRes, campaignsRes,
         leadsAssignedRes, leadsUnassignedRes,
         convertedRes, calledRes,
       ] = await Promise.all([
-        supabase.from("user_roles").select("user_id,role,profiles(full_name,is_active)").eq("role", "telecaller"),
-        supabase.from("break_logs").select("user_id,started_at,ended_at").is("ended_at", null),
+        supabase.from("user_roles").select("user_id,role").eq("role", "telecaller"),
+        supabase.from("profiles").select("id,full_name,is_active,branch_id"),
+        supabase.from("break_logs").select("telecaller_id,started_at,ended_at").is("ended_at", null),
         supabase.from("call_logs").select("telecaller_id,called_at").gte("called_at", breakCutoff),
         supabase.from("call_logs").select("id,status,telecaller_id,called_at", { count: "exact" }).gte("called_at", since),
         supabase.from("leads").select("id", { count: "exact", head: true }),
@@ -88,8 +89,15 @@ export const AdminOverviewPanel = () => {
 
       // Team
       const tcRoles = (rolesRes.data ?? []) as any[];
-      const tcIds = new Set(tcRoles.map((r) => r.user_id));
-      const activeBreakIds = new Set(((breaksRes.data ?? []) as any[]).map((b) => b.user_id));
+      const profsList = (profsRes.data ?? []) as any[];
+      const profMap = new Map(profsList.map((p) => [p.id, p]));
+      // Only count active, approved telecallers in team metrics and leaderboard
+      const activeTcRoles = tcRoles.filter((r) => {
+        const p = profMap.get(r.user_id);
+        return p && p.is_active !== false && (p as any).is_approved !== false;
+      });
+      const tcIds = new Set(activeTcRoles.map((r) => r.user_id));
+      const activeBreakIds = new Set(((breaksRes.data ?? []) as any[]).map((b) => b.telecaller_id));
       const recentlyActive = new Set(((recentCallsRes.data ?? []) as any[]).map((c) => c.telecaller_id));
       const onBreak = [...activeBreakIds].filter((id) => tcIds.has(id)).length;
       const active = [...recentlyActive].filter((id) => tcIds.has(id) && !activeBreakIds.has(id)).length;
@@ -132,9 +140,11 @@ export const AdminOverviewPanel = () => {
       setBusiness({ total, assigned, unassigned, conversion: called ? Math.round((converted / called) * 1000) / 10 : 0 });
 
       // Per-telecaller leaderboard
-      const profMap = new Map(tcRoles.map((r) => [r.user_id, r.profiles?.full_name ?? r.user_id.slice(0, 6)]));
       const lb: Record<string, { name: string; calls: number; interested: number; converted: number; last: string | null }> = {};
-      tcRoles.forEach((r) => { lb[r.user_id] = { name: profMap.get(r.user_id) ?? "—", calls: 0, interested: 0, converted: 0, last: null }; });
+      activeTcRoles.forEach((r) => {
+        const p = profMap.get(r.user_id);
+        lb[r.user_id] = { name: p?.full_name ?? r.user_id.slice(0, 6), calls: 0, interested: 0, converted: 0, last: null };
+      });
       callRows.forEach((c) => {
         const row = lb[c.telecaller_id]; if (!row) return;
         row.calls += 1;
@@ -165,14 +175,15 @@ export const AdminOverviewPanel = () => {
 
       // Branches breakdown
       const { data: brData } = await supabase.from("branches").select("id,name").eq("is_active", true).order("name");
-      const { data: brLeads } = await supabase.from("leads").select("branch_id,status");
+      const { data: brLeads } = await supabase.from("leads").select("assigned_telecaller,status");
       const map = new Map<string, { leads: number; converted: number }>();
       ((brLeads ?? []) as any[]).forEach((l) => {
-        if (!l.branch_id) return;
-        const cur = map.get(l.branch_id) ?? { leads: 0, converted: 0 };
+        const bid = l.assigned_telecaller ? profMap.get(l.assigned_telecaller)?.branch_id : null;
+        if (!bid) return;
+        const cur = map.get(bid) ?? { leads: 0, converted: 0 };
         cur.leads += 1;
         if (l.status === "Converted") cur.converted += 1;
-        map.set(l.branch_id, cur);
+        map.set(bid, cur);
       });
       setBranches(((brData ?? []) as any[]).map((b) => ({ id: b.id, name: b.name, leads: map.get(b.id)?.leads ?? 0, converted: map.get(b.id)?.converted ?? 0 })));
 

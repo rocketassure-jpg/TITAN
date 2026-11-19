@@ -1,0 +1,171 @@
+{
+  "timestamp": "2026-11-18T11:33:27.185Z",
+  "rolesTested": [
+    {
+      "roleName": "Admin",
+      "roleString": "admin",
+      "isSuperAdmin": false,
+      "defaultRouteCheck": {
+        "expected": "/admin",
+        "actual": "http://localhost:8081/admin",
+        "status": "PASS"
+      },
+      "rejections": [
+        {
+          "route": "/super-admin",
+          "landedUrl": "http://localhost:8081/admin",
+          "rejected": true
+        }
+      ],
+      "workflows": [
+        {
+          "workflow": "Admin Branches Tab Visible",
+          "passed": true
+        }
+      ],
+      "rawPiiExposedInNetwork": false,
+      "screenshot": {
+        "path": "D:\\TITAN\\docs\\audit\\screenshots\\roles\\admin-dashboard.png",
+        "hash": "1d522a9666f6c88751d388a75bcbe61f1f3f9a867dbe0c1977e15a5dd85571dd"
+      }
+    },
+    {
+      "roleName": "Manager",
+      "roleString": "manager",
+      "isSuperAdmin": false,
+      "defaultRouteCheck": {
+        "expected": "/manager",
+        "actual": "http://localhost:8081/manager",
+        "status": "PASS"
+      },
+      "rejections": [
+        {
+          "route": "/admin",
+          "landedUrl": "http://localhost:8081/manager",
+          "rejected": true
+        },
+        {
+          "route": "/super-admin",
+          "landedUrl": "http://localhost:8081/manager",
+          "rejected": true
+        }
+      ],
+      "workflows": [
+        {
+          "workflow": "Manager Team Panel Rendered",
+          "passed": true
+        }
+      ],
+      "rawPiiExposedInNetwork": false,
+      "screenshot": {
+        "path": "D:\\TITAN\\docs\\audit\\screenshots\\roles\\manager-dashboard.png",
+        "hash": "9263405a6788302ce531d3d5a1de0e2558e2804b1068029d331bd815aad66f22"
+      }
+    },
+    {
+      "roleName": "Telecaller",
+      "roleString": "telecaller",
+      "isSuperAdmin": false,
+      "defaultRouteCheck": {
+        "expected": "/telecaller",
+        "actual": "http://localhost:8081/telecaller",
+        "status": "PASS"
+      },
+      "rejections": [
+        {
+          "route": "/admin",
+          "landedUrl": "http://localhost:8081/telecaller",
+          "rejected": true
+        },
+        {
+          "route": "/manager",
+          "landedUrl": "http://localhost:8081/telecaller",
+          "rejected": true
+        },
+        {
+          "route": "/super-admin",
+          "landedUrl": "http://localhost:8081/telecaller",
+          "rejected": true
+        }
+      ],
+      "workflows": [
+        {
+          "workflow": "Telecaller Calling Queue Rendered",
+          "passed": true
+        }
+      ],
+      "rawPiiExposedInNetwork": false,
+      "screenshot": {
+        "path": "D:\\TITAN\\docs\\audit\\screenshots\\roles\\telecaller-dashboard.png",
+        "hash": "37e122ba579165b59bbc5b1df9c48fb8c4859041fc9623edc3aab6074fb8055c"
+      }
+    },
+    {
+      "roleName": "SubAgent",
+      "roleString": "sub_agent",
+      "isSuperAdmin": false,
+      "defaultRouteCheck": {
+        "expected": "/sub-agent",
+        "actual": "http://localhost:8081/sub-agent",
+        "status": "PASS"
+      },
+      "rejections": [
+        {
+          "route": "/admin",
+          "landedUrl": "http://localhost:8081/sub-agent",
+          "rejected": true
+        },
+        {
+          "route": "/manager",
+          "landedUrl": "http://localhost:8081/sub-agent",
+          "rejected": true
+        },
+        {
+          "route": "/telecaller",
+          "landedUrl": "http://localhost:8081/sub-agent",
+          "rejected": true
+        },
+        {
+          "route": "/super-admin",
+          "landedUrl": "http://localhost:8081/sub-agent",
+          "rejected": true
+        }
+      ],
+      "workflows": [
+        {
+          "workflow": "Sub-Agent Dashboard Rendered",
+          "passed": true
+        }
+      ],
+      "rawPiiExposedInNetwork": false,
+      "screenshot": {
+        "path": "D:\\TITAN\\docs\\audit\\screenshots\\roles\\subagent-dashboard.png",
+        "hash": "ba27df7749868f0b32ac2f0979d09de90079852b7d2ac8db661552bced84c99b"
+      }
+    },
+    {
+      "roleName": "SuperAdmin",
+      "roleString": "admin",
+      "isSuperAdmin": true,
+      "defaultRouteCheck": {
+        "expected": "/admin",
+        "actual": "http://localhost:8081/admin",
+        "status": "PASS"
+      },
+      "rejections": [],
+      "workflows": [
+        {
+          "workflow": "Super Admin Route Accessible",
+          "passed": true
+        }
+      ],
+      "rawPiiExposedInNetwork": false,
+      "screenshot": {
+        "path": "D:\\TITAN\\docs\\audit\\screenshots\\roles\\superadmin-dashboard.png",
+        "hash": "3575da947248146f4f111fcddbe77f5bfbc05738412ed157ca2dd7f98f7bc5a9"
+      }
+    }
+  ],
+  "networkPiiAudits": [],
+  "unauthorizedRejections": []
+}

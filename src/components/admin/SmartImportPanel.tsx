@@ -83,8 +83,12 @@ export const SmartImportPanel = ({ areas, telecallers, onDone }: { areas: Area[]
 
   // Load managers + branches + tc→branch map
   useEffect(() => {
-    supabase.from("user_roles").select("user_id, profiles(id,full_name)").eq("role", "manager").then(({ data }) => {
-      const list = (data ?? []).map((r: any) => r.profiles).filter(Boolean) as Manager[];
+    Promise.all([
+      supabase.from("user_roles").select("user_id").eq("role", "manager"),
+      supabase.from("profiles").select("id, full_name"),
+    ]).then(([rolesRes, profsRes]) => {
+      const mgrIds = new Set((rolesRes.data ?? []).map((r) => r.user_id));
+      const list = (profsRes.data ?? []).filter((p) => mgrIds.has(p.id)) as Manager[];
       setManagers(list);
     });
     supabase.from("branches").select("id,name").eq("is_active", true).order("name").then(({ data }) => {

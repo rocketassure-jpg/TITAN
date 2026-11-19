@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { InstallPWA } from "@/components/InstallPWA";
 import { PremiumCalculator } from "@/components/PremiumCalculator";
 import { Heart, Stethoscope, Car, ShieldCheck, Phone, Clock, Award, MessageCircle, Calculator, ArrowUpRight } from "lucide-react";
-import heroImage from "@/assets/hero-insurance-neon.jpg.asset.json";
+import heroImg from "@/assets/hero-insurance.jpg";
 import { InsuranceChatWidget } from "@/components/InsuranceChatWidget";
 
 const WA_NUMBER = "919669762808";
@@ -17,7 +17,7 @@ const Index = () => {
   const [calcOpen, setCalcOpen] = useState(false);
 
   return (
-    <div className="neon-root min-h-screen relative" style={{ background: "#f8fafc" }}>
+    <div className="neon-root min-h-screen relative bg-slate-50 dark:bg-slate-950">
       <div className="neon-particles" aria-hidden="true" />
 
       {/* Nav — Martian-style minimal */}
@@ -44,7 +44,7 @@ const Index = () => {
       {/* Hero — image right, headline left, Martian condensed type */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10"
-             style={{ background: "radial-gradient(900px 500px at 80% 30%, rgba(255,123,0,0.06), transparent 60%), radial-gradient(700px 400px at 10% 80%, rgba(0,212,255,0.05), transparent 60%), #f8fafc" }} />
+             style={{ background: "radial-gradient(900px 500px at 80% 30%, rgba(255,123,0,0.06), transparent 60%), radial-gradient(700px 400px at 10% 80%, rgba(0,212,255,0.05), transparent 60%)" }} />
         <div className="container grid items-center gap-10 py-16 md:py-24 lg:grid-cols-2 lg:py-32">
           <div className="space-y-7">
             <span className="inline-flex items-center gap-2 rounded-full neon-glass px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-900">
@@ -86,7 +86,7 @@ const Index = () => {
             <div className="absolute -inset-6 -z-10 rounded-3xl"
                  style={{ background: "radial-gradient(circle at 50% 50%, rgba(255,123,0,0.20), transparent 60%)", filter: "blur(40px)" }} />
             <img
-              src={heroImage.url}
+              src={heroImg}
               alt="Indian family protected by a neon insurance shield around their home and car"
               width={1920}
               height={1080}
@@ -104,7 +104,7 @@ const Index = () => {
             Tell us what you need
           </h2>
         </div>
-        <div className="mx-auto max-w-3xl neon-glass p-6 md:p-8">
+        <div className="mx-auto max-w-3xl neon-glass p-3 sm:p-6 md:p-8">
           <EnquiryForm />
         </div>
       </section>

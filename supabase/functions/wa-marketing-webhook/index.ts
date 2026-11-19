@@ -68,27 +68,29 @@ Deno.serve(async (req) => {
           const messageType = msg?.type ?? "unknown";
           const wamid = msg?.id;
 
-          // Find matching lead by phone
+          // Find matching lead by phone scoped to company
           let leadId: string | null = null;
           if (from) {
             const tail10 = from.slice(-10);
-            const { data: lead } = await supabase
+            let leadQ = supabase
               .from("leads")
               .select("id")
-              .ilike("phone_number", `%${tail10}`)
-              .limit(1)
-              .maybeSingle();
+              .ilike("phone_number", `%${tail10}`);
+            if (companyId) leadQ = leadQ.eq("company_id", companyId);
+            const { data: lead } = await leadQ.limit(1).maybeSingle();
             leadId = lead?.id ?? null;
           }
 
-          // Find latest matching campaign_log
+          // Find latest matching campaign_log scoped to company
           let campaignLogId: string | null = null;
           if (from) {
-            const { data: log } = await supabase
+            let logQ = supabase
               .from("campaign_logs")
               .select("id, campaign_id")
               .ilike("phone_number", `%${from.slice(-10)}`)
-              .in("status", ["sent", "delivered"])
+              .in("status", ["sent", "delivered"]);
+            if (companyId) logQ = logQ.eq("company_id", companyId);
+            const { data: log } = await logQ
               .order("sent_at", { ascending: false })
               .limit(1)
               .maybeSingle();

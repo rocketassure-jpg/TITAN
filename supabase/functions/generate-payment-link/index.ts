@@ -13,15 +13,74 @@ Deno.serve(async (req) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
     );
     const authHeader = req.headers.get("Authorization") ?? "";
-    const { data: userData } = await supabase.auth.getUser(authHeader.replace("Bearer ", ""));
-    if (!userData?.user) return json({ error: "Unauthorized" }, 401);
+    const token = authHeader.replace("Bearer ", "").trim();
+    if (!token) return json({ error: "Unauthorized: Missing authentication token" }, 401);
+
+    const { data: userData, error: authError } = await supabase.auth.getUser(token);
+    if (authError || !userData?.user) return json({ error: "Unauthorized: Invalid or expired token" }, 401);
+
+    const callerId = userData.user.id;
+
+    // 1. Resolve caller profile and tenant ownership
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("id, company_id, is_active, is_approved, is_super_admin")
+      .eq("id", callerId)
+      .maybeSingle();
+
+    if (!profile) return json({ error: "Unauthorized: User profile not found" }, 401);
+    if (!profile.is_active || !profile.is_approved) {
+      return json({ error: "Forbidden: Account is inactive or pending approval" }, 403);
+    }
+    if (!profile.is_super_admin && !profile.company_id) {
+      return json({ error: "Forbidden: No tenant company associated" }, 403);
+    }
+
+    // 2. Resolve caller role and permissions
+    const { data: roleRows } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", callerId);
+
+    const callerRoles = (roleRows ?? []).map((r: { role: string }) => r.role);
+    const hasAuthorizedRole = profile.is_super_admin || callerRoles.some((r: string) =>
+      ["admin", "manager", "telecaller", "sub_agent"].includes(r)
+    );
+    if (!hasAuthorizedRole) {
+      return json({ error: "Forbidden: Insufficient permissions to generate payment links" }, 403);
+    }
 
     const { motor_quote_id } = await req.json();
     if (!motor_quote_id) return json({ error: "motor_quote_id required" }, 400);
 
+    const callerCompanyId = profile.company_id;
+
+    // 3. Resolve motor quote scoped to tenant
     const { data: quote } = await supabase
-      .from("motor_quotes").select("*").eq("id", motor_quote_id).maybeSingle();
+      .from("motor_quotes")
+      .select("*")
+      .eq("id", motor_quote_id)
+      .maybeSingle();
+
     if (!quote) return json({ error: "Quote not found" }, 404);
+
+    // Cross-tenant check: if caller is not super admin, quote MUST belong to caller's company
+    if (!profile.is_super_admin && quote.company_id !== callerCompanyId) {
+      return json({ error: "Forbidden: Cross-tenant access denied" }, 403);
+    }
+
+    // 4. If lead_id is present, verify lead belongs to same company
+    if (quote.lead_id) {
+      const { data: lead } = await supabase
+        .from("leads")
+        .select("id, company_id")
+        .eq("id", quote.lead_id)
+        .maybeSingle();
+
+      if (!lead || (!profile.is_super_admin && lead.company_id !== callerCompanyId)) {
+        return json({ error: "Forbidden: Associated lead belongs to another tenant or does not exist" }, 403);
+      }
+    }
 
     const { data: integ } = await supabase
       .from("super_admin_integrations").select("credentials")
@@ -54,17 +113,26 @@ Deno.serve(async (req) => {
       paymentUrl = `https://pay.policyboss.com/checkout/${motor_quote_id}`;
     }
 
-    await supabase.from("motor_quotes").update({
+    let quoteUpdate = supabase.from("motor_quotes").update({
       payment_link: paymentUrl,
       payment_sent_at: new Date().toISOString(),
       status: "payment_sent",
       current_step: 5,
     }).eq("id", motor_quote_id);
+    if (!profile.is_super_admin) {
+      quoteUpdate = quoteUpdate.eq("company_id", callerCompanyId);
+    }
+    await quoteUpdate;
 
     if (quote.lead_id) {
-      await supabase.from("leads").update({
-        payment_link: paymentUrl, status: "Quote Sent",
+      let leadUpdate = supabase.from("leads").update({
+        payment_link: paymentUrl,
+        status: "Quote Sent",
       }).eq("id", quote.lead_id);
+      if (!profile.is_super_admin) {
+        leadUpdate = leadUpdate.eq("company_id", callerCompanyId);
+      }
+      await leadUpdate;
     }
 
     return json({ payment_url: paymentUrl, expiry });

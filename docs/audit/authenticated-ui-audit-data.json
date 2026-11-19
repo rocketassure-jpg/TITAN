@@ -1,0 +1,232 @@
+{
+  "timestamp": "2026-11-18T08:38:44.886Z",
+  "accountTested": "rahulpatidar1009@gmail.com",
+  "resolvedRole": "admin",
+  "company": "Rewa insuretech indore",
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "name": "mobile",
+      "width": 375,
+      "height": 667
+    }
+  ],
+  "screenshots": [
+    {
+      "name": "landing-desktop-light.png",
+      "path": "docs\\audit\\screenshots\\landing-desktop-light.png",
+      "hash": "9d053392e7bd528e17f1212ad9d48adb61431d255ff1c54ea8a08893f77285bc",
+      "viewport": "desktop"
+    },
+    {
+      "name": "landing-tablet-light.png",
+      "path": "docs\\audit\\screenshots\\landing-tablet-light.png",
+      "hash": "f9e471b783f10b7d78ab425fbe5263f5f00ad60182c325df1bf8391ff448f53f",
+      "viewport": "tablet"
+    },
+    {
+      "name": "landing-mobile-light.png",
+      "path": "docs\\audit\\screenshots\\landing-mobile-light.png",
+      "hash": "c54823ea8c7ee45c031e3b219e6a3590d64bcdd5818d356498fa590f2e732a0e",
+      "viewport": "mobile"
+    },
+    {
+      "name": "auth-login-screen.png",
+      "path": "docs\\audit\\screenshots\\auth-login-screen.png",
+      "hash": "a689953b40ac04d24b841aaafd9d8dc52dde9eade42d67bbc3b0ac5b2b5e2a1d"
+    },
+    {
+      "name": "admin-dashboard-desktop-authenticated.png",
+      "path": "docs\\audit\\screenshots\\admin-dashboard-desktop-authenticated.png",
+      "hash": "942ef1c8d0bbb471ba2e375f623dd582532c478678ee265aaaa9c65ed632eaa5",
+      "viewport": "desktop",
+      "route": "/admin"
+    },
+    {
+      "name": "admin-dashboard-tablet-authenticated.png",
+      "path": "docs\\audit\\screenshots\\admin-dashboard-tablet-authenticated.png",
+      "hash": "5cc373ffc91e7f5e72777eaecae3deb4dfe27efcc7116ff4f8ef58d620a8e546",
+      "viewport": "tablet",
+      "route": "/admin"
+    },
+    {
+      "name": "admin-dashboard-mobile-authenticated.png",
+      "path": "docs\\audit\\screenshots\\admin-dashboard-mobile-authenticated.png",
+      "hash": "33e56058671f7ced00d79347e468d2eee00e9d8a4aa95744732d42274ce9d268",
+      "viewport": "mobile",
+      "route": "/admin"
+    },
+    {
+      "name": "telecaller-dashboard-desktop-authenticated.png",
+      "path": "docs\\audit\\screenshots\\telecaller-dashboard-desktop-authenticated.png",
+      "hash": "849a215f963048d1740f85ba537ddfa40933489df110e19d0dffb179ea6f872e",
+      "viewport": "desktop",
+      "route": "/telecaller"
+    },
+    {
+      "name": "telecaller-dashboard-tablet-authenticated.png",
+      "path": "docs\\audit\\screenshots\\telecaller-dashboard-tablet-authenticated.png",
+      "hash": "e7634d5b19086f4442c3eb358e0b775551368c30515ad4290feaa0a9bc234fa5",
+      "viewport": "tablet",
+      "route": "/telecaller"
+    },
+    {
+      "name": "telecaller-dashboard-mobile-authenticated.png",
+      "path": "docs\\audit\\screenshots\\telecaller-dashboard-mobile-authenticated.png",
+      "hash": "6eec33436ea5ece3086a1cf5855473ead5ba0347b91d2779e03c214b9ab3a92d",
+      "viewport": "mobile",
+      "route": "/telecaller"
+    },
+    {
+      "name": "manager-dashboard-desktop-authenticated.png",
+      "path": "docs\\audit\\screenshots\\manager-dashboard-desktop-authenticated.png",
+      "hash": "23e540f21b7b1ac3811b82d994c9ed4cd0c8824068eb6b76b49d01a5936047a3",
+      "viewport": "desktop",
+      "route": "/manager"
+    },
+    {
+      "name": "manager-dashboard-tablet-authenticated.png",
+      "path": "docs\\audit\\screenshots\\manager-dashboard-tablet-authenticated.png",
+      "hash": "18107eeea316bd0656a8edaeccdd1777f6421780b417f72e8b652bb2a16bd393",
+      "viewport": "tablet",
+      "route": "/manager"
+    },
+    {
+      "name": "manager-dashboard-mobile-authenticated.png",
+      "path": "docs\\audit\\screenshots\\manager-dashboard-mobile-authenticated.png",
+      "hash": "c44ba499d46c5aa3c515d5e470875bb8be0c24799a356fc03772fc825e21ee61",
+      "viewport": "mobile",
+      "route": "/manager"
+    },
+    {
+      "name": "sub-agent-dashboard-desktop-authenticated.png",
+      "path": "docs\\audit\\screenshots\\sub-agent-dashboard-desktop-authenticated.png",
+      "hash": "6b35c5ea6474bb1cb38e8993e3453049d8a01f043ff6f9cad5e88c91eea3b034",
+      "viewport": "desktop",
+      "route": "/sub-agent"
+    },
+    {
+      "name": "sub-agent-dashboard-tablet-authenticated.png",
+      "path": "docs\\audit\\screenshots\\sub-agent-dashboard-tablet-authenticated.png",
+      "hash": "baad2c63c36356459ab51691cb1b16ad1b0c380bb8401968578811e0b8303796",
+      "viewport": "tablet",
+      "route": "/sub-agent"
+    },
+    {
+      "name": "sub-agent-dashboard-mobile-authenticated.png",
+      "path": "docs\\audit\\screenshots\\sub-agent-dashboard-mobile-authenticated.png",
+      "hash": "1bbdb339a8639cfb419d654a3e765d4cc4788496aedc5c4dab60dfbc9b37412f",
+      "viewport": "mobile",
+      "route": "/sub-agent"
+    },
+    {
+      "name": "super-admin-denied-desktop-authenticated.png",
+      "path": "docs\\audit\\screenshots\\super-admin-denied-desktop-authenticated.png",
+      "hash": "942ef1c8d0bbb471ba2e375f623dd582532c478678ee265aaaa9c65ed632eaa5",
+      "viewport": "desktop",
+      "route": "/super-admin"
+    },
+    {
+      "name": "super-admin-denied-tablet-authenticated.png",
+      "path": "docs\\audit\\screenshots\\super-admin-denied-tablet-authenticated.png",
+      "hash": "5cc373ffc91e7f5e72777eaecae3deb4dfe27efcc7116ff4f8ef58d620a8e546",
+      "viewport": "tablet",
+      "route": "/super-admin"
+    },
+    {
+      "name": "super-admin-denied-mobile-authenticated.png",
+      "path": "docs\\audit\\screenshots\\super-admin-denied-mobile-authenticated.png",
+      "hash": "33e56058671f7ced00d79347e468d2eee00e9d8a4aa95744732d42274ce9d268",
+      "viewport": "mobile",
+      "route": "/super-admin"
+    },
+    {
+      "name": "admin-dashboard-desktop-dark.png",
+      "path": "docs\\audit\\screenshots\\admin-dashboard-desktop-dark.png",
+      "hash": "d11df5058a4bd1cd06ea093fc64670d7b622ee7a0fb4e405afc085dfe777ee3a",
+      "theme": "dark"
+    }
+  ],
+  "routesTested": [],
+  "consoleErrors": [
+    {
+      "route": "/admin",
+      "viewport": "desktop",
+      "text": "Failed to load resource: the server responded with a status of 400 ()"
+    },
+    {
+      "route": "/admin",
+      "viewport": "tablet",
+      "text": "Failed to load resource: the server responded with a status of 400 ()"
+    },
+    {
+      "route": "/admin",
+      "viewport": "mobile",
+      "text": "Failed to load resource: the server responded with a status of 400 ()"
+    },
+    {
+      "route": "/super-admin",
+      "viewport": "desktop",
+      "text": "Failed to load resource: the server responded with a status of 400 ()"
+    },
+    {
+      "route": "/super-admin",
+      "viewport": "tablet",
+      "text": "Failed to load resource: the server responded with a status of 400 ()"
+    },
+    {
+      "route": "/super-admin",
+      "viewport": "mobile",
+      "text": "Failed to load resource: the server responded with a status of 400 ()"
+    }
+  ],
+  "networkErrors": [],
+  "accessibilityViolations": [
+    {
+      "route": "/admin",
+      "violationsCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/telecaller",
+      "violationsCount": 1,
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodesCount": 3,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright"
+        }
+      ]
+    },
+    {
+      "route": "/manager",
+      "violationsCount": 1,
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodesCount": 3,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright"
+        }
+      ]
+    },
+    {
+      "route": "/sub-agent",
+      "violationsCount": 0,
+      "violations": []
+    }
+  ],
+  "uiDefectsDetected": []
+}

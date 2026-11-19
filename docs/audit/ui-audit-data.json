@@ -1,0 +1,1409 @@
+{
+  "timestamp": "2026-11-17T19:06:05.702Z",
+  "viewports": [
+    {
+      "name": "desktop-1440",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "name": "tablet-768",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "name": "mobile-375",
+      "width": 375,
+      "height": 667
+    }
+  ],
+  "results": [
+    {
+      "route": "/",
+      "name": "landing",
+      "viewport": "desktop-1440",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/",
+      "loadDurationMs": 4145,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflowingElements": []
+      },
+      "a11ySummary": {
+        "violationsCount": 3,
+        "violations": [
+          {
+            "id": "button-name",
+            "impact": "critical",
+            "description": "Ensure buttons have discernible text",
+            "help": "Buttons must have discernible text",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=playwright"
+          },
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "nodesCount": 2,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "description": "Ensure all page content is contained by landmarks",
+            "help": "All page content should be contained by landmarks",
+            "nodesCount": 28,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+          }
+        ]
+      },
+      "darkTested": false
+    },
+    {
+      "route": "/auth",
+      "name": "auth",
+      "viewport": "desktop-1440",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 723,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflowingElements": []
+      },
+      "a11ySummary": {
+        "violationsCount": 4,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "description": "Ensure the document has a main landmark",
+            "help": "Document should have one main landmark",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=playwright"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+            "help": "Page should contain a level-one heading",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=playwright"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "description": "Ensure all page content is contained by landmarks",
+            "help": "All page content should be contained by landmarks",
+            "nodesCount": 6,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+          }
+        ]
+      },
+      "darkTested": false
+    },
+    {
+      "route": "/reset-password",
+      "name": "reset-password",
+      "viewport": "desktop-1440",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/reset-password",
+      "loadDurationMs": 588,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflowingElements": []
+      },
+      "a11ySummary": {
+        "violationsCount": 3,
+        "violations": [
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "description": "Ensure the document has a main landmark",
+            "help": "Document should have one main landmark",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=playwright"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+            "help": "Page should contain a level-one heading",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=playwright"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "description": "Ensure all page content is contained by landmarks",
+            "help": "All page content should be contained by landmarks",
+            "nodesCount": 2,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+          }
+        ]
+      },
+      "darkTested": false
+    },
+    {
+      "route": "/trust",
+      "name": "trust",
+      "viewport": "desktop-1440",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/trust",
+      "loadDurationMs": 572,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflowingElements": []
+      },
+      "a11ySummary": {
+        "violationsCount": 0,
+        "violations": []
+      },
+      "darkTested": false
+    },
+    {
+      "route": "/404-test",
+      "name": "not-found",
+      "viewport": "desktop-1440",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/404-test",
+      "loadDurationMs": 623,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/dashboard",
+      "name": "dashboard-redirect",
+      "viewport": "desktop-1440",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 607,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/telecaller",
+      "name": "telecaller-redirect",
+      "viewport": "desktop-1440",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 603,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/manager",
+      "name": "manager-redirect",
+      "viewport": "desktop-1440",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 592,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/admin",
+      "name": "admin-redirect",
+      "viewport": "desktop-1440",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 608,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/super-admin",
+      "name": "superadmin-redirect",
+      "viewport": "desktop-1440",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 623,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/super-admin/blueprint",
+      "name": "blueprint-redirect",
+      "viewport": "desktop-1440",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 607,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "viewport": "tablet-768",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/",
+      "loadDurationMs": 734,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflowingElements": []
+      },
+      "a11ySummary": {
+        "violationsCount": 3,
+        "violations": [
+          {
+            "id": "button-name",
+            "impact": "critical",
+            "description": "Ensure buttons have discernible text",
+            "help": "Buttons must have discernible text",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=playwright"
+          },
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "nodesCount": 2,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "description": "Ensure all page content is contained by landmarks",
+            "help": "All page content should be contained by landmarks",
+            "nodesCount": 28,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+          }
+        ]
+      },
+      "darkTested": false
+    },
+    {
+      "route": "/auth",
+      "name": "auth",
+      "viewport": "tablet-768",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 597,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflowingElements": []
+      },
+      "a11ySummary": {
+        "violationsCount": 4,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "description": "Ensure the document has a main landmark",
+            "help": "Document should have one main landmark",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=playwright"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+            "help": "Page should contain a level-one heading",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=playwright"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "description": "Ensure all page content is contained by landmarks",
+            "help": "All page content should be contained by landmarks",
+            "nodesCount": 6,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+          }
+        ]
+      },
+      "darkTested": false
+    },
+    {
+      "route": "/reset-password",
+      "name": "reset-password",
+      "viewport": "tablet-768",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/reset-password",
+      "loadDurationMs": 560,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflowingElements": []
+      },
+      "a11ySummary": {
+        "violationsCount": 3,
+        "violations": [
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "description": "Ensure the document has a main landmark",
+            "help": "Document should have one main landmark",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=playwright"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+            "help": "Page should contain a level-one heading",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=playwright"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "description": "Ensure all page content is contained by landmarks",
+            "help": "All page content should be contained by landmarks",
+            "nodesCount": 2,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+          }
+        ]
+      },
+      "darkTested": false
+    },
+    {
+      "route": "/trust",
+      "name": "trust",
+      "viewport": "tablet-768",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/trust",
+      "loadDurationMs": 2482,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflowingElements": []
+      },
+      "a11ySummary": {
+        "violationsCount": 0,
+        "violations": []
+      },
+      "darkTested": false
+    },
+    {
+      "route": "/404-test",
+      "name": "not-found",
+      "viewport": "tablet-768",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/404-test",
+      "loadDurationMs": 1200,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/dashboard",
+      "name": "dashboard-redirect",
+      "viewport": "tablet-768",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 4009,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/telecaller",
+      "name": "telecaller-redirect",
+      "viewport": "tablet-768",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 15299,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/manager",
+      "name": "manager-redirect",
+      "viewport": "tablet-768",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 2221,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/admin",
+      "name": "admin-redirect",
+      "viewport": "tablet-768",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 803,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/super-admin",
+      "name": "superadmin-redirect",
+      "viewport": "tablet-768",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 986,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/super-admin/blueprint",
+      "name": "blueprint-redirect",
+      "viewport": "tablet-768",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 1184,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "viewport": "mobile-375",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/",
+      "loadDurationMs": 2600,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 375,
+        "clientWidth": 375,
+        "overflowingElements": []
+      },
+      "a11ySummary": {
+        "violationsCount": 3,
+        "violations": [
+          {
+            "id": "button-name",
+            "impact": "critical",
+            "description": "Ensure buttons have discernible text",
+            "help": "Buttons must have discernible text",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=playwright"
+          },
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "nodesCount": 2,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "description": "Ensure all page content is contained by landmarks",
+            "help": "All page content should be contained by landmarks",
+            "nodesCount": 28,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+          }
+        ]
+      },
+      "darkTested": false
+    },
+    {
+      "route": "/auth",
+      "name": "auth",
+      "viewport": "mobile-375",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 2025,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 375,
+        "clientWidth": 375,
+        "overflowingElements": []
+      },
+      "a11ySummary": {
+        "violationsCount": 4,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "description": "Ensure the document has a main landmark",
+            "help": "Document should have one main landmark",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=playwright"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+            "help": "Page should contain a level-one heading",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=playwright"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "description": "Ensure all page content is contained by landmarks",
+            "help": "All page content should be contained by landmarks",
+            "nodesCount": 6,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+          }
+        ]
+      },
+      "darkTested": false
+    },
+    {
+      "route": "/reset-password",
+      "name": "reset-password",
+      "viewport": "mobile-375",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/reset-password",
+      "loadDurationMs": 779,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 375,
+        "clientWidth": 375,
+        "overflowingElements": []
+      },
+      "a11ySummary": {
+        "violationsCount": 3,
+        "violations": [
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "description": "Ensure the document has a main landmark",
+            "help": "Document should have one main landmark",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=playwright"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+            "help": "Page should contain a level-one heading",
+            "nodesCount": 1,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=playwright"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "description": "Ensure all page content is contained by landmarks",
+            "help": "All page content should be contained by landmarks",
+            "nodesCount": 2,
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+          }
+        ]
+      },
+      "darkTested": false
+    },
+    {
+      "route": "/trust",
+      "name": "trust",
+      "viewport": "mobile-375",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/trust",
+      "loadDurationMs": 1276,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 375,
+        "clientWidth": 375,
+        "overflowingElements": []
+      },
+      "a11ySummary": {
+        "violationsCount": 0,
+        "violations": []
+      },
+      "darkTested": false
+    },
+    {
+      "route": "/404-test",
+      "name": "not-found",
+      "viewport": "mobile-375",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/404-test",
+      "loadDurationMs": 2483,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 375,
+        "clientWidth": 375,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/dashboard",
+      "name": "dashboard-redirect",
+      "viewport": "mobile-375",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 848,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 375,
+        "clientWidth": 375,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/telecaller",
+      "name": "telecaller-redirect",
+      "viewport": "mobile-375",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 863,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 375,
+        "clientWidth": 375,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/manager",
+      "name": "manager-redirect",
+      "viewport": "mobile-375",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 1203,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 375,
+        "clientWidth": 375,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/admin",
+      "name": "admin-redirect",
+      "viewport": "mobile-375",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 802,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 375,
+        "clientWidth": 375,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/super-admin",
+      "name": "superadmin-redirect",
+      "viewport": "mobile-375",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 1097,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 375,
+        "clientWidth": 375,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    },
+    {
+      "route": "/super-admin/blueprint",
+      "name": "blueprint-redirect",
+      "viewport": "mobile-375",
+      "status": 200,
+      "finalUrl": "http://localhost:8081/auth",
+      "loadDurationMs": 778,
+      "overflow": {
+        "hasOverflow": false,
+        "scrollWidth": 375,
+        "clientWidth": 375,
+        "overflowingElements": []
+      },
+      "a11ySummary": null,
+      "darkTested": false
+    }
+  ],
+  "consoleErrors": [
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/reset-password",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/reset-password",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/trust",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/trust",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/404-test",
+      "text": "404 Error: User attempted to access non-existent route: /404-test"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/404-test",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/404-test",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "desktop-1440",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "tablet-768",
+      "url": "http://localhost:8081/",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "tablet-768",
+      "url": "http://localhost:8081/",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "tablet-768",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "tablet-768",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "tablet-768",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "tablet-768",
+      "url": "http://localhost:8081/reset-password",
+      "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "viewport": "tablet-768",
+      "url": "http://localhost:8081/404-test",
+      "text": "404 Error: User attempted to access non-existent route: /404-test"
+    },
+    {
+      "viewport": "tablet-768",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: the server responded with a status of 401 ()"
+    },
+    {
+      "viewport": "tablet-768",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: the server responded with a status of 401 ()"
+    },
+    {
+      "viewport": "tablet-768",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: the server responded with a status of 401 ()"
+    },
+    {
+      "viewport": "tablet-768",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: the server responded with a status of 401 ()"
+    },
+    {
+      "viewport": "tablet-768",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: the server responded with a status of 401 ()"
+    },
+    {
+      "viewport": "mobile-375",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: the server responded with a status of 401 ()"
+    },
+    {
+      "viewport": "mobile-375",
+      "url": "http://localhost:8081/404-test",
+      "text": "404 Error: User attempted to access non-existent route: /404-test"
+    },
+    {
+      "viewport": "mobile-375",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: the server responded with a status of 401 ()"
+    },
+    {
+      "viewport": "mobile-375",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: the server responded with a status of 401 ()"
+    },
+    {
+      "viewport": "mobile-375",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: the server responded with a status of 401 ()"
+    },
+    {
+      "viewport": "mobile-375",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: the server responded with a status of 401 ()"
+    },
+    {
+      "viewport": "mobile-375",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: the server responded with a status of 401 ()"
+    },
+    {
+      "viewport": "mobile-375",
+      "url": "http://localhost:8081/auth",
+      "text": "Failed to load resource: the server responded with a status of 401 ()"
+    }
+  ],
+  "overflowIssues": [],
+  "a11yViolations": [
+    {
+      "route": "/",
+      "viewport": "desktop-1440",
+      "violations": [
+        {
+          "id": "button-name",
+          "impact": "critical",
+          "description": "Ensure buttons have discernible text",
+          "help": "Buttons must have discernible text",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=playwright"
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodesCount": 2,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright"
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "description": "Ensure all page content is contained by landmarks",
+          "help": "All page content should be contained by landmarks",
+          "nodesCount": 28,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+        }
+      ]
+    },
+    {
+      "route": "/auth",
+      "viewport": "desktop-1440",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright"
+        },
+        {
+          "id": "landmark-one-main",
+          "impact": "moderate",
+          "description": "Ensure the document has a main landmark",
+          "help": "Document should have one main landmark",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=playwright"
+        },
+        {
+          "id": "page-has-heading-one",
+          "impact": "moderate",
+          "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+          "help": "Page should contain a level-one heading",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=playwright"
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "description": "Ensure all page content is contained by landmarks",
+          "help": "All page content should be contained by landmarks",
+          "nodesCount": 6,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+        }
+      ]
+    },
+    {
+      "route": "/reset-password",
+      "viewport": "desktop-1440",
+      "violations": [
+        {
+          "id": "landmark-one-main",
+          "impact": "moderate",
+          "description": "Ensure the document has a main landmark",
+          "help": "Document should have one main landmark",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=playwright"
+        },
+        {
+          "id": "page-has-heading-one",
+          "impact": "moderate",
+          "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+          "help": "Page should contain a level-one heading",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=playwright"
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "description": "Ensure all page content is contained by landmarks",
+          "help": "All page content should be contained by landmarks",
+          "nodesCount": 2,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "viewport": "tablet-768",
+      "violations": [
+        {
+          "id": "button-name",
+          "impact": "critical",
+          "description": "Ensure buttons have discernible text",
+          "help": "Buttons must have discernible text",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=playwright"
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodesCount": 2,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright"
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "description": "Ensure all page content is contained by landmarks",
+          "help": "All page content should be contained by landmarks",
+          "nodesCount": 28,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+        }
+      ]
+    },
+    {
+      "route": "/auth",
+      "viewport": "tablet-768",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright"
+        },
+        {
+          "id": "landmark-one-main",
+          "impact": "moderate",
+          "description": "Ensure the document has a main landmark",
+          "help": "Document should have one main landmark",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=playwright"
+        },
+        {
+          "id": "page-has-heading-one",
+          "impact": "moderate",
+          "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+          "help": "Page should contain a level-one heading",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=playwright"
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "description": "Ensure all page content is contained by landmarks",
+          "help": "All page content should be contained by landmarks",
+          "nodesCount": 6,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+        }
+      ]
+    },
+    {
+      "route": "/reset-password",
+      "viewport": "tablet-768",
+      "violations": [
+        {
+          "id": "landmark-one-main",
+          "impact": "moderate",
+          "description": "Ensure the document has a main landmark",
+          "help": "Document should have one main landmark",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=playwright"
+        },
+        {
+          "id": "page-has-heading-one",
+          "impact": "moderate",
+          "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+          "help": "Page should contain a level-one heading",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=playwright"
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "description": "Ensure all page content is contained by landmarks",
+          "help": "All page content should be contained by landmarks",
+          "nodesCount": 2,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "viewport": "mobile-375",
+      "violations": [
+        {
+          "id": "button-name",
+          "impact": "critical",
+          "description": "Ensure buttons have discernible text",
+          "help": "Buttons must have discernible text",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=playwright"
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodesCount": 2,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright"
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "description": "Ensure all page content is contained by landmarks",
+          "help": "All page content should be contained by landmarks",
+          "nodesCount": 28,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+        }
+      ]
+    },
+    {
+      "route": "/auth",
+      "viewport": "mobile-375",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright"
+        },
+        {
+          "id": "landmark-one-main",
+          "impact": "moderate",
+          "description": "Ensure the document has a main landmark",
+          "help": "Document should have one main landmark",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=playwright"
+        },
+        {
+          "id": "page-has-heading-one",
+          "impact": "moderate",
+          "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+          "help": "Page should contain a level-one heading",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=playwright"
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "description": "Ensure all page content is contained by landmarks",
+          "help": "All page content should be contained by landmarks",
+          "nodesCount": 6,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+        }
+      ]
+    },
+    {
+      "route": "/reset-password",
+      "viewport": "mobile-375",
+      "violations": [
+        {
+          "id": "landmark-one-main",
+          "impact": "moderate",
+          "description": "Ensure the document has a main landmark",
+          "help": "Document should have one main landmark",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=playwright"
+        },
+        {
+          "id": "page-has-heading-one",
+          "impact": "moderate",
+          "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+          "help": "Page should contain a level-one heading",
+          "nodesCount": 1,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=playwright"
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "description": "Ensure all page content is contained by landmarks",
+          "help": "All page content should be contained by landmarks",
+          "nodesCount": 2,
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright"
+        }
+      ]
+    }
+  ]
+}

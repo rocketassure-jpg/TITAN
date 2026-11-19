@@ -55,29 +55,29 @@ export const EnquiryForm = () => {
   );
 
   return (
-    <Card className="shadow-elegant">
-      <CardHeader>
-        <CardTitle>Get a free insurance quote</CardTitle>
-        <CardDescription>Bharo aur submit karo — hamari team turant call karegi. Ya seedha WhatsApp pe expert se baat karo.</CardDescription>
+    <Card className="shadow-elegant w-full max-w-full overflow-hidden">
+      <CardHeader className="p-4 sm:p-6">
+        <CardTitle className="text-lg sm:text-xl">Get a free insurance quote</CardTitle>
+        <CardDescription className="text-xs sm:text-sm">Bharo aur submit karo — hamari team turant call karegi. Ya seedha WhatsApp pe expert se baat karo.</CardDescription>
       </CardHeader>
-      <CardContent>
-        <form onSubmit={submit} className="grid gap-4 md:grid-cols-2">
-          <div className="space-y-2">
+      <CardContent className="p-4 sm:p-6 pt-0 sm:pt-0">
+        <form onSubmit={submit} className="grid w-full max-w-full gap-4 md:grid-cols-2">
+          <div className="space-y-2 w-full max-w-full">
             <Label htmlFor="cn">Full name</Label>
-            <Input id="cn" required value={form.customer_name} onChange={(e) => setForm({ ...form, customer_name: e.target.value })} />
+            <Input id="cn" required className="w-full max-w-full" value={form.customer_name} onChange={(e) => setForm({ ...form, customer_name: e.target.value })} />
           </div>
-          <div className="space-y-2">
+          <div className="space-y-2 w-full max-w-full">
             <Label htmlFor="ph">Phone number</Label>
-            <Input id="ph" required inputMode="tel" value={form.phone_number} onChange={(e) => setForm({ ...form, phone_number: e.target.value })} />
+            <Input id="ph" required inputMode="tel" className="w-full max-w-full" value={form.phone_number} onChange={(e) => setForm({ ...form, phone_number: e.target.value })} />
           </div>
-          <div className="space-y-2">
+          <div className="space-y-2 w-full max-w-full">
             <Label htmlFor="vn">Vehicle number (optional)</Label>
-            <Input id="vn" placeholder="MP09 AB 1234" value={form.vehicle_number} onChange={(e) => setForm({ ...form, vehicle_number: e.target.value })} />
+            <Input id="vn" placeholder="MP09 AB 1234" className="w-full max-w-full" value={form.vehicle_number} onChange={(e) => setForm({ ...form, vehicle_number: e.target.value })} />
           </div>
-          <div className="space-y-2">
+          <div className="space-y-2 w-full max-w-full">
             <Label>Insurance type</Label>
             <Select value={form.insurance_type} onValueChange={(v) => setForm({ ...form, insurance_type: v as any })}>
-              <SelectTrigger><SelectValue /></SelectTrigger>
+              <SelectTrigger className="w-full max-w-full"><SelectValue /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="Motor">Motor</SelectItem>
                 <SelectItem value="Health">Health</SelectItem>
@@ -85,17 +85,17 @@ export const EnquiryForm = () => {
               </SelectContent>
             </Select>
           </div>
-          <div className="space-y-2 md:col-span-2">
+          <div className="space-y-2 md:col-span-2 w-full max-w-full">
             <Label htmlFor="msg">Message (optional)</Label>
-            <Textarea id="msg" maxLength={500} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
+            <Textarea id="msg" maxLength={500} className="w-full max-w-full resize-none" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
           </div>
-          <div className="flex flex-col gap-3 md:col-span-2 md:flex-row">
-            <Button type="submit" variant="hero" size="lg" className="flex-1" disabled={loading}>
-              {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />} Submit enquiry
+          <div className="flex flex-col gap-3 md:col-span-2 md:flex-row w-full max-w-full">
+            <Button type="submit" variant="hero" size="lg" className="w-full flex-1 whitespace-normal sm:whitespace-nowrap px-4 py-2.5 text-center h-auto min-h-[2.75rem]" disabled={loading}>
+              {loading ? <Loader2 className="h-4 w-4 animate-spin shrink-0" /> : <Send className="h-4 w-4 shrink-0" />} Submit enquiry
             </Button>
-            <Button asChild variant="success" size="lg" className="flex-1">
-              <a href={`https://wa.me/${WA_NUMBER}?text=${waText}`} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-4 w-4" /> Chat with Expert on WhatsApp
+            <Button asChild variant="success" size="lg" className="w-full flex-1 whitespace-normal sm:whitespace-nowrap px-4 py-2.5 text-center h-auto min-h-[2.75rem]">
+              <a href={`https://wa.me/${WA_NUMBER}?text=${waText}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 text-center">
+                <MessageCircle className="h-4 w-4 shrink-0" /> <span>Chat with Expert on WhatsApp</span>
               </a>
             </Button>
           </div>

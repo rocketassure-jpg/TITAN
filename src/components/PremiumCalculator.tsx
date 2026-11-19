@@ -35,7 +35,11 @@ const odRateByVehicle = (type: string, age: number) => {
 };
 
 
-const inr = (n: number) => `₹${Math.round(n).toLocaleString("en-IN")}`;
+const inr = (n: number) => {
+  const rounded = Math.round(n);
+  if (rounded < 0) return `-₹${Math.abs(rounded).toLocaleString("en-IN")}`;
+  return `₹${rounded.toLocaleString("en-IN")}`;
+};
 
 const initial = {
   customerName: "",
@@ -75,7 +79,7 @@ export const PremiumCalculator = ({ embedded = false }: { embedded?: boolean }) 
   const calc = useMemo(() => {
     const age = Math.max(0, new Date().getFullYear() - Number(f.mfgYear));
     const dep = depreciationByAge(age);
-    const idv = Math.max(0, Number(f.exShowroom) * (1 - dep));
+    const idv = Math.max(0, Math.round(Number(f.exShowroom) * (1 - dep)));
 
     const odRate = odRateByVehicle(f.vehicleType, age);
     const baseOD = idv * odRate;
@@ -115,7 +119,7 @@ export const PremiumCalculator = ({ embedded = false }: { embedded?: boolean }) 
     const grossCommission = odCommission + tpCommission + addonCommission;
 
     const customerPays = Math.max(0, grossPremium - Number(f.customerDiscount));
-    const netInPocket = Math.max(0, grossCommission - Number(f.customerDiscount));
+    const netInPocket = grossCommission - Number(f.customerDiscount);
     const margin = netPremium > 0 ? (netInPocket / netPremium) * 100 : 0;
 
     return {
@@ -336,11 +340,14 @@ export const PremiumCalculator = ({ embedded = false }: { embedded?: boolean }) 
               <Row label="TOTAL CUSTOMER PAYS" value={inr(calc.customerPays)} bold large />
             </div>
 
-            <div className="mt-3 rounded-md border bg-muted/30 p-3 text-xs">
-              <div className="font-semibold text-foreground">Broker / Internal</div>
+            <div className={`mt-3 rounded-md border p-3 text-xs ${calc.netInPocket < 0 ? "border-destructive/40 bg-destructive/10" : "bg-muted/30"}`}>
+              <div className="flex items-center justify-between font-semibold text-foreground">
+                <span>Broker / Internal</span>
+                {calc.netInPocket < 0 && <span className="font-bold text-destructive">⚠️ Deficit (Loss-Making Quote)</span>}
+              </div>
               <Row label="Gross Commission" value={inr(calc.grossCommission)} />
-              <Row label="Net In Pocket" value={inr(calc.netInPocket)} />
-              <Row label="Margin %" value={calc.margin.toFixed(2) + "%"} />
+              <Row label="Net In Pocket" value={inr(calc.netInPocket)} bold={calc.netInPocket < 0} />
+              <Row label="Margin %" value={calc.margin.toFixed(2) + "%"} bold={calc.netInPocket < 0} />
             </div>
 
             <div className="mt-3 flex flex-col gap-2 sm:flex-row">

@@ -94,7 +94,9 @@ export const useLeadsPaginated = ({
       const t = todayISO();
       switch (bucket) {
         case "today":
-          q = q.lte("call_date", t).not("status", "in", `(${COMPLETED_STATUSES.join(",")})`).is("last_called_at", null);
+          q = q.eq("call_date", t)
+               .not("status", "in", `(${COMPLETED_STATUSES.join(",")})`)
+               .or(`last_called_at.is.null,last_called_at.lt.${t}T00:00:00`);
           break;
         case "overdue":
           q = q.lt("call_date", t).not("status", "in", `(Interested,${COMPLETED_STATUSES.join(",")})`);
@@ -122,8 +124,13 @@ export const useLeadsPaginated = ({
 
       const s = debouncedSearch.trim();
       if (s) {
-        if (/^\d+$/.test(s)) q = q.ilike("phone_number", `%${s}%`);
-        else q = q.ilike("customer_name", `%${s}%`);
+        const digits = s.replace(/\D/g, "");
+        if (digits.length >= 5 && (/^[\d\s\-+()]+$/.test(s) || digits.length >= 7)) {
+          const searchDigits = digits.length === 12 && digits.startsWith("91") ? digits.slice(2) : digits;
+          q = q.ilike("phone_number", `%${searchDigits}%`);
+        } else {
+          q = q.ilike("customer_name", `%${s}%`);
+        }
       }
       return q;
     },

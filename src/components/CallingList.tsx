@@ -49,10 +49,10 @@ const statusColor = (s: string) => {
     case "Follow-up": return "bg-warning text-warning-foreground";
     case "Done":
     case "Policy Issued": return "bg-primary text-primary-foreground";
-    case "Not Picked": return "bg-muted text-muted-foreground";
+    case "Not Picked": return "bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-200";
     case "Not Interested":
     case "Unsubscribed": return "bg-destructive text-destructive-foreground";
-    default: return "bg-secondary text-secondary-foreground";
+    default: return "bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-200";
   }
 };
 
@@ -168,21 +168,31 @@ export const CallingList = ({ callerName = "Rocket Services", filterAssigned = f
 
   // Telecaller list (for bulk assign)
   useEffect(() => {
-    supabase.from("user_roles").select("user_id, profiles(id,full_name)").eq("role", "telecaller").then(({ data }) => {
-      const list = (data ?? []).map((r: any) => r.profiles).filter(Boolean);
+    let cancelled = false;
+    Promise.all([
+      supabase.from("user_roles").select("user_id").eq("role", "telecaller"),
+      supabase.from("profiles").select("id, full_name"),
+    ]).then(([rolesRes, profsRes]) => {
+      if (cancelled) return;
+      const tcIds = new Set((rolesRes.data ?? []).map((r) => r.user_id));
+      const list = (profsRes.data ?? []).filter((p) => tcIds.has(p.id)) as { id: string; full_name: string }[];
       setTelecallerList(list);
     });
+    return () => { cancelled = true; };
   }, []);
 
   // Dial counts for currently loaded page only
   useEffect(() => {
     const ids = leads.map((l) => l.id);
     if (!ids.length) { setDialCounts({}); return; }
+    let cancelled = false;
     supabase.from("dial_logs").select("lead_id").in("lead_id", ids).then(({ data }) => {
+      if (cancelled) return;
       const counts: Record<string, number> = {};
       (data ?? []).forEach((r: any) => { counts[r.lead_id] = (counts[r.lead_id] ?? 0) + 1; });
       setDialCounts(counts);
     });
+    return () => { cancelled = true; };
   }, [leads]);
 
   const loadTodayStats = async () => {

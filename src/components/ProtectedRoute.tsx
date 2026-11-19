@@ -11,8 +11,13 @@ export const ProtectedRoute = ({ children, requireRole, requireSuperAdmin }: { c
   if (loading) return <div className="flex h-screen items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>;
   if (!user) return <Navigate to="/auth" replace />;
 
-  if (profileStatus && !profileStatus.is_active) {
-    return <PendingApproval reason={profileStatus.rejection_reason || "Aapka account admin ne deactivate kar diya hai. Admin se contact karein."} />;
+  if (profileStatus) {
+    if (!profileStatus.is_active) {
+      return <PendingApproval reason={profileStatus.rejection_reason || "Aapka account admin ne deactivate kar diya hai. Admin se contact karein."} />;
+    }
+    if (!profileStatus.is_approved) {
+      return <PendingApproval reason={null} />;
+    }
   }
 
   if (requireSuperAdmin && !isSuperAdmin) return <Navigate to="/dashboard" replace />;

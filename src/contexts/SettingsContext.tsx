@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useState, ReactNode, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "@/hooks/use-toast";
 
 export type RoleKey = "admin" | "manager" | "telecaller" | "agent" | "sub_agent";
 
@@ -49,14 +51,21 @@ const applyBrand = (b: BrandConfig) => {
 };
 
 export const SettingsProvider = ({ children }: { children: ReactNode }) => {
+  const { companyId } = useAuth();
   const [loading, setLoading] = useState(true);
   const [masking, setMasking] = useState<MaskingConfig>(DEFAULT_MASKING);
   const [brand, setBrand] = useState<BrandConfig>(DEFAULT_BRAND);
   const [settingsId, setSettingsId] = useState<string | null>(null);
 
   const reload = useCallback(async () => {
-    const { data } = await supabase.from("app_settings").select("*").limit(1).maybeSingle();
-    if (data) {
+    let query = supabase.from("app_settings").select("*");
+    if (companyId) {
+      query = query.eq("company_id", companyId);
+    }
+    const { data, error } = await query.limit(1).maybeSingle();
+    if (error) {
+      console.warn("Failed to load company app_settings:", error.message);
+    } else if (data) {
       setSettingsId((data as any).id);
       const m = (data as any).masking_config;
       const b = (data as any).brand_config;
@@ -68,20 +77,30 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
       }
     }
     setLoading(false);
-  }, []);
+  }, [companyId]);
 
   useEffect(() => { reload(); }, [reload]);
 
   const saveMasking = async (m: MaskingConfig) => {
     if (!settingsId) return;
-    await supabase.from("app_settings").update({ masking_config: m as any } as any).eq("id", settingsId);
+    const { error } = await supabase.from("app_settings").update({ masking_config: m as any } as any).eq("id", settingsId);
+    if (error) {
+      toast({ title: "Failed to save masking settings", description: error.message, variant: "destructive" });
+      return;
+    }
     setMasking(m);
+    toast({ title: "Settings saved", description: "Masking configuration updated." });
   };
   const saveBrand = async (b: BrandConfig) => {
     if (!settingsId) return;
-    await supabase.from("app_settings").update({ brand_config: b as any } as any).eq("id", settingsId);
+    const { error } = await supabase.from("app_settings").update({ brand_config: b as any } as any).eq("id", settingsId);
+    if (error) {
+      toast({ title: "Failed to save branding settings", description: error.message, variant: "destructive" });
+      return;
+    }
     setBrand(b);
     applyBrand(b);
+    toast({ title: "Settings saved", description: "Branding configuration updated." });
   };
 
   return (

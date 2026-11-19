@@ -38,9 +38,14 @@ const Auth = () => {
   const [inviteRequired, setInviteRequired] = useState(false);
 
   useEffect(() => {
-    (supabase as any).rpc("invite_code_required").then(({ data }: any) => {
-      if (data === true) setInviteRequired(true);
-    });
+    (supabase as any)
+      .rpc("invite_code_required")
+      .then(({ data }: any) => {
+        if (data === true) setInviteRequired(true);
+      })
+      .catch(() => {
+        // Fail-safe handling if RPC has restricted execute grant
+      });
   }, []);
 
   useEffect(() => {
@@ -54,10 +59,17 @@ const Auth = () => {
     setLoading(true);
     let loginEmail = email.trim();
     if (loginEmail && !loginEmail.includes("@")) {
-      const { data } = await (supabase as any).rpc("resolve_login_email", { _login: loginEmail });
+      const { data } = await (supabase as any).rpc("resolve_login_email", {
+        _login: loginEmail,
+        _password: password,
+      });
       if (!data) {
         setLoading(false);
-        return toast({ title: "Account not found", description: "Yeh mobile/email registered nahi hai", variant: "destructive" });
+        return toast({
+          title: "Sign in failed",
+          description: "Invalid credentials. Please verify your mobile/email and password.",
+          variant: "destructive",
+        });
       }
       loginEmail = data as string;
     }
@@ -72,7 +84,13 @@ const Auth = () => {
     if (!target) return toast({ title: "Email/Mobile daalo", description: "Pehle field bharo, fir 'Forgot password' click karo", variant: "destructive" });
     if (!target.includes("@")) {
       const { data } = await (supabase as any).rpc("resolve_login_email", { _login: target });
-      if (!data) return toast({ title: "Account not found", variant: "destructive" });
+      if (!data) {
+        return toast({
+          title: "Email address required",
+          description: "Please enter your registered email address to receive password reset instructions.",
+          variant: "destructive",
+        });
+      }
       target = data as string;
     }
     // Synthetic staff emails can't receive mail — guide them to admin
@@ -94,9 +112,15 @@ const Auth = () => {
     setCompanyPreview(null);
     if (!code || code.length < 3) return;
     setCodeChecking(true);
-    const { data } = await (supabase as any).rpc("lookup_company_by_code", { _code: code });
+    const [{ data }, { data: reqInvite }] = await Promise.all([
+      (supabase as any).rpc("lookup_company_by_code", { _code: code }),
+      (supabase as any).rpc("invite_code_required", { _company_code: code }).catch(() => ({ data: false })),
+    ]);
     setCodeChecking(false);
-    if (data && data.length) setCompanyPreview({ name: data[0].name });
+    if (data && data.length) {
+      setCompanyPreview({ name: data[0].name });
+      if (reqInvite === true) setInviteRequired(true);
+    }
   };
 
   const handleSignUp = async (e: React.FormEvent) => {
@@ -117,6 +141,9 @@ const Auth = () => {
     let signupEmail = email.trim();
     if (signupMode === "join") {
       meta.company_code = companyCode;
+      if (inviteCode.trim()) {
+        meta.invite_code = inviteCode.trim();
+      }
       if (!signupEmail) {
         const digits = mobile.replace(/\D/g, "");
         const codeSlug = (companyCode || "staff").toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -137,7 +164,10 @@ const Auth = () => {
     }
     await supabase.auth.signInWithPassword({ email: signupEmail, password }).catch(() => {});
     setLoading(false);
-    toast({ title: "Account created", description: "Welcome!" });
+    toast({
+      title: "Account created",
+      description: signupMode === "join" ? "Welcome! Please wait for Admin approval to access dashboard." : "Welcome!",
+    });
     if (signupMode === "create") nav("/admin?tab=training&onboarding=1");
     else nav("/dashboard");
   };

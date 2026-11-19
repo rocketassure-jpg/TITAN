@@ -44,6 +44,12 @@ Deno.serve(async (req) => {
     await admin.from("api_keys").update({ last_used_at: new Date().toISOString() }).eq("id", keyRow.id);
 
     const keyCompanyId = keyRow.company_id;
+    if (!keyCompanyId) {
+      return new Response(JSON.stringify({ error: "API key is not associated with an authorized company" }), {
+        status: 403,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     const payload = await req.json().catch(() => ({}));
     const { data: ev } = await admin.from("webhook_events").insert({
@@ -62,10 +68,13 @@ Deno.serve(async (req) => {
       return new Response(JSON.stringify({ ok: true, event_id: ev?.id, lead_created: false, reason: "Missing name/phone" }), { headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
 
-    // Pick an area scoped to the API key's company
-    let areaQuery = admin.from("areas").select("id").limit(1);
-    if (keyCompanyId) areaQuery = areaQuery.eq("company_id", keyCompanyId);
-    const { data: area } = await areaQuery.maybeSingle();
+    // Pick an area strictly scoped to the API key's company
+    const { data: area } = await admin
+      .from("areas")
+      .select("id")
+      .eq("company_id", keyCompanyId)
+      .limit(1)
+      .maybeSingle();
     if (!area) {
       return new Response(JSON.stringify({ ok: false, error: "No area configured for company" }), { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }

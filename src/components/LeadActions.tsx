@@ -60,10 +60,10 @@ const statusPillColor = (s: string) => {
     case "Negotiation":
     case "Follow-up": return "bg-warning text-warning-foreground border-warning";
     case "Done": return "bg-primary text-primary-foreground border-primary";
-    case "Not Picked": return "bg-muted text-muted-foreground border-border";
+    case "Not Picked": return "bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-200 border-slate-300 dark:border-slate-700";
     case "Not Interested":
     case "Unsubscribed": return "bg-destructive text-destructive-foreground border-destructive";
-    default: return "bg-secondary text-secondary-foreground border-border";
+    default: return "bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-200 border-slate-300 dark:border-slate-700";
   }
 };
 

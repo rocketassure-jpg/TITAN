@@ -1,0 +1,187 @@
+{
+  "timestamp": "2026-11-18T09:21:37.403Z",
+  "viewportsTested": [],
+  "uiChecks": [
+    {
+      "viewport": "mobile-320",
+      "width": 320,
+      "heroImage": {
+        "complete": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "currentSrc": "http://localhost:8081/assets/hero-insurance-C1cQ73by.jpg"
+      },
+      "horizontalOverflow": {
+        "scrollWidth": 320,
+        "clientWidth": 320,
+        "hasHorizontalOverflow": false,
+        "overflowPixels": 0
+      },
+      "formClipping": {
+        "clippedCount": 0,
+        "clipped": []
+      },
+      "screenshot": {
+        "path": "D:\\TITAN\\docs\\audit\\screenshots\\landing-mobile-320.png",
+        "hash": "a81e66278515abaad350bdd6059f518f53fbb8bbde914682f9b47c9ce3cc2504"
+      }
+    },
+    {
+      "viewport": "mobile-375",
+      "width": 375,
+      "heroImage": {
+        "complete": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "currentSrc": "http://localhost:8081/assets/hero-insurance-C1cQ73by.jpg"
+      },
+      "horizontalOverflow": {
+        "scrollWidth": 375,
+        "clientWidth": 375,
+        "hasHorizontalOverflow": false,
+        "overflowPixels": 0
+      },
+      "formClipping": {
+        "clippedCount": 0,
+        "clipped": []
+      },
+      "screenshot": {
+        "path": "D:\\TITAN\\docs\\audit\\screenshots\\landing-mobile-375.png",
+        "hash": "3a185480b845e9ce99608a5f51fe324ea95e3efad7ad81ee1797c9487c41cbdf"
+      }
+    },
+    {
+      "viewport": "mobile-390",
+      "width": 390,
+      "heroImage": {
+        "complete": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "currentSrc": "http://localhost:8081/assets/hero-insurance-C1cQ73by.jpg"
+      },
+      "horizontalOverflow": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowPixels": 0
+      },
+      "formClipping": {
+        "clippedCount": 0,
+        "clipped": []
+      },
+      "screenshot": {
+        "path": "D:\\TITAN\\docs\\audit\\screenshots\\landing-mobile-390.png",
+        "hash": "dda9ce173b28f219c77349819c463cd1b148ba7519e5934248543558fc4a5c8b"
+      }
+    },
+    {
+      "viewport": "tablet-768",
+      "width": 768,
+      "heroImage": {
+        "complete": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "currentSrc": "http://localhost:8081/assets/hero-insurance-C1cQ73by.jpg"
+      },
+      "horizontalOverflow": {
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "hasHorizontalOverflow": false,
+        "overflowPixels": 0
+      },
+      "formClipping": {
+        "clippedCount": 0,
+        "clipped": []
+      },
+      "screenshot": {
+        "path": "D:\\TITAN\\docs\\audit\\screenshots\\landing-tablet-768.png",
+        "hash": "a1f4e01f1484c5bfedf1208c59c6e65179143404b824aa680b877c5bada67693"
+      }
+    },
+    {
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "heroImage": {
+        "complete": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "currentSrc": "http://localhost:8081/assets/hero-insurance-C1cQ73by.jpg"
+      },
+      "horizontalOverflow": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowPixels": 0
+      },
+      "formClipping": {
+        "clippedCount": 0,
+        "clipped": []
+      },
+      "screenshot": {
+        "path": "D:\\TITAN\\docs\\audit\\screenshots\\landing-desktop-1440.png",
+        "hash": "7a946387c7d6de5ab83dcc98f720b802456c439824f832d0fe763eaed1fc8c82"
+      }
+    }
+  ],
+  "roleRoutes": [
+    {
+      "route": "/admin",
+      "targetRole": "admin",
+      "expected": "accessible",
+      "actualUrl": "http://localhost:8081/admin",
+      "status": "PASS"
+    },
+    {
+      "route": "/telecaller",
+      "targetRole": "telecaller",
+      "expected": "accessible",
+      "actualUrl": "http://localhost:8081/telecaller",
+      "status": "PASS"
+    },
+    {
+      "route": "/manager",
+      "targetRole": "manager",
+      "expected": "accessible",
+      "actualUrl": "http://localhost:8081/manager",
+      "status": "PASS"
+    },
+    {
+      "route": "/sub-agent",
+      "targetRole": "sub_agent",
+      "expected": "accessible",
+      "actualUrl": "http://localhost:8081/sub-agent",
+      "status": "PASS"
+    },
+    {
+      "route": "/super-admin",
+      "targetRole": "super_admin",
+      "expected": "redirect-to-admin",
+      "actualUrl": "http://localhost:8081/admin",
+      "status": "PASS"
+    }
+  ],
+  "workflowsTested": [
+    {
+      "workflow": "Admin Tab: Branches",
+      "status": "PASS"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 401 ()",
+      "location": {
+        "url": "https://lgqgnsngxhqdzpstiddj.supabase.co/rest/v1/rpc/invite_code_required",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "name": "admin-overview-loaded.png",
+      "hash": "794b599d2b84aaea7152adcc851a8a0cc34dc2e21acbb4d6ac38e3a65295289c"
+    }
+  ]
+}
